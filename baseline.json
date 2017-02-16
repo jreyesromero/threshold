@@ -1,0 +1,905 @@
+{
+    "description": "", 
+    "classtype": "SoftwareBaseline", 
+    "id": "", 
+    "base_type": "CUDB_code", 
+    "software": [
+        {
+            "classtype": "SoftwareDescriptor", 
+            "version": "pa8", 
+            "name": "cudb_schemas", 
+            "packages": [
+                {
+                    "name": "aaa.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "aaa.schema", 
+                    "file_locations": [
+                        "file://input/aaa.schema", 
+                        "file:///var/venus/sw/schemas_pa8/aaa.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/aaa.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "d8428d5f0fc5829e1053cbe1ce999079", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "aa"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "HSS_FE_AVG.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "HSS_FE_AVG.schema", 
+                    "file_locations": [
+                        "file://input/HSS_FE_AVG.schema", 
+                        "file:///var/venus/sw/schemas_pa8/HSS_FE_AVG.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/HSS_FE_AVG.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "221b372cf312f599fd8c0fc52f9ba5a5", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "avg"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "nph.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "nph.schema", 
+                    "file_locations": [
+                        "file://input/nph.schema", 
+                        "file:///var/venus/sw/schemas_pa8/nph.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/nph.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "0898d875e405b1fcbcdd0fa3c5b2191e", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "nph"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "enum.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "enum.schema", 
+                    "file_locations": [
+                        "file://input/enum.schema", 
+                        "file:///var/venus/sw/schemas_pa8/enum.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/enum.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "d0ec0189d0abb1a28d0f854cd0309eed", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "enum"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "HSS_FE_EPS.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "HSS_FE_EPS.schema", 
+                    "file_locations": [
+                        "file://input/HSS_FE_EPS.schema", 
+                        "file:///var/venus/sw/schemas_pa8/HSS_FE_EPS.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/HSS_FE_EPS.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "80f6cbbcf2f352aabbb5d5f064b99e01", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "eps"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "sapc.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "sapc.schema", 
+                    "file_locations": [
+                        "file://input/sapc.schema", 
+                        "file:///var/venus/sw/schemas_pa8/sapc.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/sapc.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "6c760d87da090265c474556119ed32c3", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "sapc"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "HSS_FE_ISM.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "HSS_FE_ISM.schema", 
+                    "file_locations": [
+                        "file://input/HSS_FE_ISM.schema", 
+                        "file:///var/venus/sw/schemas_pa8/HSS_FE_ISM.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/HSS_FE_ISM.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "8aac8ac58d3305a3b574cd34380182fd", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "ims"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "assoc.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "assoc.schema", 
+                    "file_locations": [
+                        "file://input/assoc.schema", 
+                        "file:///var/venus/sw/schemas_pa8/assoc.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/assoc.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "45ad2300d48ec1c365a1669250452865", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "assoc"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "HSS_FE_SM.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "HSS_FE_SM.schema", 
+                    "file_locations": [
+                        "file://input/HSS_FE_SM.schema", 
+                        "file:///var/venus/sw/schemas_pa8/HSS_FE_SM.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/HSS_FE_SM.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "6574b8f23222f27e33ab41e397d733bd", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "sm"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "auth.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "auth.schema", 
+                    "file_locations": [
+                        "file://input/auth.schema", 
+                        "file:///var/venus/sw/schemas_pa8/auth.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/auth.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "22ddba144de444b0ee2aab79d0dbe6e7", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "au"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "csps.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "csps.schema", 
+                    "file_locations": [
+                        "file://input/csps.schema", 
+                        "file:///var/venus/sw/schemas_pa8/csps.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/csps.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "fcbf47d5469c27bf05456c3339c165ce", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "cp"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "mscIdentities.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "mscIdentities.schema", 
+                    "file_locations": [
+                        "file://input/mscIdentities.schema", 
+                        "file:///var/venus/sw/schemas_pa8/mscIdentities.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/mscIdentities.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "d5eb9d925226f7aac2cad6b1b8a8efbd", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": false, 
+                        "upgrade": false, 
+                        "service": "msc"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "identities.schema", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "identities.schema", 
+                    "file_locations": [
+                        "file://input/identities.schema", 
+                        "file:///var/venus/sw/schemas_pa8/identities.schema", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/identities.schema"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "c777fa2dd2354f68cb8fbf8cbd481792", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "is_additional_schema": true, 
+                        "upgrade": false
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "appservices", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "appservices", 
+                    "file_locations": [
+                        "file://input/appservices.txt", 
+                        "file:///var/venus/sw/schemas_pa8/appservices.txt", 
+                        "file:///net/erinas1.lmc.ericsson.se/vol/volp2018/UDC_EMC/UNIV13B/SOFTWARE/GAIS/schemas_pa8/appservices.txt"
+                    ], 
+                    "version": "pa8", 
+                    "checksum_md5": "2ac31931d04e86e7ca10cf3e98037f74", 
+                    "provides": "cudb_schemas", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": false
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }
+            ], 
+            "description": "Schemas for cudb version 17A revision PA8"
+        }, 
+        {
+            "classtype": "SoftwareDescriptor", 
+            "version": "CXP9025735_R9C10", 
+            "name": "bsp", 
+            "packages": [
+                {
+                    "name": "runtime", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "CXP9025735_R9C10.tar", 
+                    "file_locations": [
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cudb-external-local/platform//BSP8100/CUDB1/R9.1/CXP9025735_R9C10.tar", 
+                        "file:///var/venus/sw/development/software/CXP9025735_R9C10.tar", 
+                        "file://input/CXP9025735_R9C10.tar"
+                    ], 
+                    "version": "CXP9025735_R9C10", 
+                    "checksum_md5": "50cafab85f32ca9ff54b421ba69b54e5", 
+                    "provides": "bsp", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": false
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }
+            ], 
+            "description": "BSP8100 R9.1"
+        }, 
+        {
+            "name": "com", 
+            "classtype": "SoftwareDescriptor", 
+            "version": "6.0.1", 
+            "packages": [
+                {
+                    "name": "template", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "com_x86_64-6.0.1-deployment-sle-cxp9028492.tar.gz", 
+                    "file_locations": [
+                        "file://input/com_x86_64-6.0.1-deployment-sle-cxp9028492.tar.gz", 
+                        "file:///var/venus/sw/development/software/com_x86_64-6.0.1-deployment-sle-cxp9028492.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-all/com/ericsson/cba/com_x86_64/com_x86_64/6.0.1/com_x86_64-6.0.1-deployment-sle-cxp9028492.tar.gz"
+                    ], 
+                    "version": "com_x86_64/com_x86_64/6.0.1/com_x86_64-6.0.1-deployment-sle-cxp9028492.tar.gz", 
+                    "checksum_md5": "ca04596da50e19d4a23a98830fc7e538", 
+                    "provides": "com", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "remove_template": true, 
+                        "upgrade": true, 
+                        "required_services": "cbamw", 
+                        "use_template": "ERIC-COM-I1-TEMPLATE-.*.sdp"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "runtime", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "com_x86_64-6.0.1-runtime-sle-cxp9028493.tar.gz", 
+                    "file_locations": [
+                        "file://input/com_x86_64-6.0.1-runtime-sle-cxp9028493.tar.gz", 
+                        "file:///var/venus/sw/development/software/com_x86_64-6.0.1-runtime-sle-cxp9028493.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-all/com/ericsson/cba/com_x86_64/com_x86_64/6.0.1/com_x86_64-6.0.1-runtime-sle-cxp9028493.tar.gz"
+                    ], 
+                    "version": "/com_x86_64/com_x86_64/6.0.1/com_x86_64-6.0.1-runtime-sle-cxp9028493.tar.gz", 
+                    "checksum_md5": "41081b122edcc306114e714b86302ab6", 
+                    "provides": "com", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true, 
+                        "use_template": "com-ldapsm-6.0.1-2-sle-cxp9028493.sdp"
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }
+            ], 
+            "additional_info": {
+                "required_services": "cbamw", 
+                "method": "campaign"
+            }, 
+            "description": "development"
+        }, 
+        {
+            "classtype": "SoftwareDescriptor", 
+            "version": "3.1.1", 
+            "name": "evip", 
+            "packages": [
+                {
+                    "name": "template", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "evip-3.1.1-deployment-sle-cxp9017647.tar.gz", 
+                    "file_locations": [
+                        "file://input/evip-3.1.1-deployment-sle-cxp9017647.tar.gz", 
+                        "file:///var/venus/sw/development/software/evip-3.1.1-deployment-sle-cxp9017647.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-all/com/ericsson/cba/evip/evip/3.1.1/evip-3.1.1-deployment-sle-cxp9017647.tar.gz"
+                    ], 
+                    "version": "/evip/evip/3.1.1/evip-3.1.1-deployment-sle-cxp9017647.tar.gz", 
+                    "checksum_md5": "b31d8c2f182b41b66568dee1219d1ce3", 
+                    "provides": "evip", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "use_template_cloud": "EVIP_I2_TEMPLATE", 
+                        "upgrade": true, 
+                        "use_template_real_hw": "EVIP_I1_TEMPLATE"
+                    }, 
+                    "id": "", 
+                    "description": "None"
+                }, 
+                {
+                    "name": "runtime", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "evip-3.1.1-runtime-sle-cxp9020395.tar.gz", 
+                    "file_locations": [
+                        "file://input/evip-3.1.1-runtime-sle-cxp9020395.tar.gz", 
+                        "file:///var/venus/sw/development/software/evip-3.1.1-runtime-sle-cxp9020395.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-all/com/ericsson/cba/evip/evip/3.1.1/evip-3.1.1-runtime-sle-cxp9020395.tar.gz"
+                    ], 
+                    "version": "/evip/evip/3.1.1/evip-3.1.1-runtime-sle-cxp9020395.tar.gz", 
+                    "checksum_md5": "b746f2d861fa0fd78c9937ae3e07dc29", 
+                    "provides": "evip", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": "None"
+                }
+            ], 
+            "additional_info": {
+                "payloads_option": false, 
+                "payloads": "$payloads", 
+                "clear_campaign": true, 
+                "required_services": "cbamw", 
+                "method": "evip", 
+                "initial_config": "$evip_config"
+            }
+        }, 
+        {
+            "classtype": "SoftwareDescriptor", 
+            "version": "4.0.5", 
+            "name": "coremw", 
+            "packages": [
+                {
+                    "name": "runtime", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "coremw_x86_64-4.0.5-runtime-sle-cxp9020355.tar.gz", 
+                    "file_locations": [
+                        "file://input/coremw_x86_64-4.0.5-runtime-sle-cxp9020355.tar.gz", 
+                        "file:///var/venus/sw/development/software/coremw_x86_64-4.0.5-runtime-sle-cxp9020355.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-all/com/ericsson/cba/coremw_x86_64/coremw_x86_64/4.0.5/coremw_x86_64-4.0.5-runtime-sle-cxp9020355.tar.gz"
+                    ], 
+                    "version": "/coremw_x86_64/coremw_x86_64/4.0.5/coremw_x86_64-4.0.5-runtime-sle-cxp9020355.tar.gz", 
+                    "checksum_md5": "28607f54fa076771ca78be1e4c44c6aa", 
+                    "provides": "coremw", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "template", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "coremw_x86_64-4.0.5-deployment-sle-cxp9017564.tar.gz", 
+                    "file_locations": [
+                        "file://input/coremw_x86_64-4.0.5-deployment-sle-cxp9017564.tar.gz", 
+                        "file:///var/venus/sw/development/software/coremw_x86_64-4.0.5-deployment-sle-cxp9017564.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-all/com/ericsson/cba/coremw_x86_64/coremw_x86_64/4.0.5/coremw_x86_64-4.0.5-deployment-sle-cxp9017564.tar.gz"
+                    ], 
+                    "version": "/coremw_x86_64/coremw_x86_64/4.0.5/coremw_x86_64-4.0.5-deployment-sle-cxp9017564.tar.gz", 
+                    "checksum_md5": "7b097cecb8de2045389e1358a84de920", 
+                    "provides": "coremw", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }
+            ], 
+            "additional_info": {
+                "check_success": "Install script completed successfully", 
+                "method": "tar_installer"
+            }
+        }, 
+        {
+            "name": "cudb", 
+            "classtype": "SoftwareDescriptor", 
+            "version": "development", 
+            "packages": [
+                {
+                    "name": "vCUDB_2CPU_6GB", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "vCUDB_IMAGES_2CPU_6GB-1_CXP9040617_10.tar.gz", 
+                    "file_locations": [
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cudb-release-local/CUDB_17A/RCs/RC8/vCUDB_IMAGES_2CPU_6GB-1_CXP9040617_10.tar.gz"
+                    ], 
+                    "version": "1_CXP9040617_10_C", 
+                    "checksum_md5": "997c632a463c5a9326f9888a111febb2", 
+                    "provides": "cudb", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": false
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "vCUDB_16CPU_47GB", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "vCUDB_IMAGES_16CPU_47GB-2_CXP9040617_10.tar.gz", 
+                    "file_locations": [
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cudb-release-local/CUDB_17A/RCs/RC8/vCUDB_IMAGES_16CPU_47GB-2_CXP9040617_10.tar.gz"
+                    ], 
+                    "version": "2_CXP9040617_10_C", 
+                    "checksum_md5": "a738ebd24f8026ee851afcab3f76a9e6", 
+                    "provides": "cudb", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": false
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "hooks", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "CUDB_LOTC_INSTALLATION_HOOKS_x86_64-CXP9030752.tar", 
+                    "file_locations": [
+                        "file://input/CUDB_LOTC_INSTALLATION_HOOKS_x86_64-CXP9030752.tar", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cudb-staging-local/CUDB_1/DAILY/20170214180003/DAILY-20170214180003.CUDB_LOTC_INSTALLATION_HOOKS_x86_64-CXP9030752.tar"
+                    ], 
+                    "version": "development", 
+                    "checksum_md5": "", 
+                    "provides": "cudb", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": false
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "schema_tool", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "CUDB_INTERNAL_TOOLS_x86_64-CXP9023823.tar", 
+                    "file_locations": [
+                        "file://input/CUDB_INTERNAL_TOOLS_x86_64-CXP9023823.tar", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cudb-staging-local/CUDB_1/DAILY/20170214180003/DAILY-20170214180003.CUDB_INTERNAL_TOOLS_x86_64-CXP9023823.tar"
+                    ], 
+                    "version": "development", 
+                    "checksum_md5": "", 
+                    "provides": "cudb", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": false
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "model_tool", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "CUDB_INTERNAL_TOOLS_x86_64-CXP9023823.tar", 
+                    "file_locations": [
+                        "file://input/CUDB_INTERNAL_TOOLS_x86_64-CXP9023823.tar", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cudb-staging-local/CUDB_1/DAILY/20170214180003/DAILY-20170214180003.CUDB_INTERNAL_TOOLS_x86_64-CXP9023823.tar"
+                    ], 
+                    "version": "development", 
+                    "checksum_md5": "", 
+                    "provides": "cudb", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": false
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "runtime", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "CUDB_RUNTIME_x86_64-CXP9020214_10.tar", 
+                    "file_locations": [
+                        "file://input/CUDB_RUNTIME_x86_64-CXP9020214_10.tar", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cudb-staging-local/CUDB_1/DAILY/20170214180003/DAILY-20170214180003.CUDB_RUNTIME_x86_64-CXP9020214_10.tar"
+                    ], 
+                    "version": "development", 
+                    "checksum_md5": "", 
+                    "provides": "cudb", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": false
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }
+            ], 
+            "additional_info": {
+                "templates": "CUTeBuilder", 
+                "installation_mod": "cba", 
+                "all": null, 
+                "additional": null, 
+                "cluster_template": "lotc", 
+                "sdpadd": null, 
+                "basic_core": null
+            }, 
+            "description": "development"
+        }, 
+        {
+            "classtype": "SoftwareDescriptor", 
+            "version": "4.0.5", 
+            "name": "ldews", 
+            "packages": [
+                {
+                    "name": "runtime", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "ldews-4.0.5-runtime-sle-cxp9020125.tar.gz", 
+                    "file_locations": [
+                        "file://input/ldews-4.0.5-runtime-sle-cxp9020125.tar.gz", 
+                        "file:///var/venus/sw/development/software/ldews-4.0.5-runtime-sle-cxp9020125.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-all/com/ericsson/cba/ldews/ldews/4.0.5/ldews-4.0.5-runtime-sle-cxp9020125.tar.gz"
+                    ], 
+                    "version": "/ldews/ldews/4.0.5/ldews-4.0.5-runtime-sle-cxp9020125.tar.gz", 
+                    "checksum_md5": "b49c26aa6496f1d1cd649333d955cc64", 
+                    "provides": "ldews", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "template", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "ldews-4.0.5-deployment-sle-cxp9020284.tar.gz", 
+                    "file_locations": [
+                        "file://input/ldews-4.0.5-deployment-sle-cxp9020284.tar.gz", 
+                        "file:///var/venus/sw/development/software/ldews-4.0.5-deployment-sle-cxp9020284.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-all/com/ericsson/cba/ldews/ldews/4.0.5/ldews-4.0.5-deployment-sle-cxp9020284.tar.gz"
+                    ], 
+                    "version": "/ldews/ldews/4.0.5/ldews-4.0.5-deployment-sle-cxp9020284.tar.gz", 
+                    "checksum_md5": "08b2ec551fc36f02992c9bec5bbce3bc", 
+                    "provides": "ldews", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "iso", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "ldews-4.0.5-iso-sle-ana90139.iso", 
+                    "file_locations": [
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-all/com/ericsson/cba/ldews/ldews/4.0.5/ldews-4.0.5-iso-sle-ana90139.iso", 
+                        "file://input/ldews-4.0.5-iso-sle-ana90139.iso"
+                    ], 
+                    "version": "/ldews/ldews/4.0.5/ldews-4.0.5-iso-sle-ana90139.iso", 
+                    "checksum_md5": "6921676e1559dbfebbd319df4d2b2471", 
+                    "provides": "ldews", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": false
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }
+            ], 
+            "additional_info": {
+                "clear_campaign": true, 
+                "required_services": "cbamw", 
+                "method": "cba_adaptation"
+            }
+        }, 
+        {
+            "name": "ait", 
+            "classtype": "SoftwareDescriptor", 
+            "pri": "", 
+            "nid": "", 
+            "version": "1.7_PRA", 
+            "tid": "", 
+            "packages": [
+                {
+                    "name": "development", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "ait-1.7_PRA-dev_CXP9019388_1_R8A.tar.gz", 
+                    "file_locations": [
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-release-local/com/ericsson/cba/ait/1.7_PRA/ait-1.7_PRA-dev_CXP9019388_1_R8A.tar.gz"
+                    ], 
+                    "version": "1.7_PRA", 
+                    "checksum_md5": "50c29d72258d060443928225f8cd92b4", 
+                    "provides": "ait", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": "None"
+                }, 
+                {
+                    "name": "runtime", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "ait-1.7_PRA-runtime_CXP9020536_1_R8A.tar.gz", 
+                    "file_locations": [
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-release-local/com/ericsson/cba/ait/1.7_PRA/ait-1.7_PRA-runtime_CXP9020536_1_R8A.tar.gz"
+                    ], 
+                    "version": "1.7_PRA", 
+                    "checksum_md5": "edc83b34a05458ab7f25a6042ac4f7c6", 
+                    "provides": "ait", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": "None"
+                }
+            ], 
+            "description": ""
+        }, 
+        {
+            "classtype": "SoftwareDescriptor", 
+            "version": "5.0.3", 
+            "name": "lm", 
+            "packages": [
+                {
+                    "name": "runtime", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "lm-5.0.3-runtime-sle-cxp9020396.tar.gz", 
+                    "file_locations": [
+                        "file://input/lm-5.0.3-runtime-sle-cxp9020396.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-release-local/com/ericsson/cba/lm/lm/5.0.3/lm-5.0.3-runtime-sle-cxp9020396.tar.gz", 
+                        "file:///var/venus/sw/development/software/lm-5.0.3-runtime-sle-cxp9020396.tar.gz"
+                    ], 
+                    "version": "5.0.3", 
+                    "checksum_md5": "df75ddcf5fe2a8aa248e422a917f3bbc", 
+                    "provides": "lm", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "template", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "lm-5.0.3-deployment-sle-cxp9021594.tar.gz", 
+                    "file_locations": [
+                        "file://input/lm-5.0.3-deployment-sle-cxp9021594.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-release-local/com/ericsson/cba/lm/lm/5.0.3/lm-5.0.3-deployment-sle-cxp9021594.tar.gz", 
+                        "file:///var/venus/sw/development/software/lm-5.0.3-deployment-sle-cxp9021594.tar.gz"
+                    ], 
+                    "version": "5.0.3", 
+                    "checksum_md5": "cb0d95e89efe55f27336fdfda74d94d9", 
+                    "provides": "lm", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }
+            ], 
+            "additional_info": {
+                "clear_campaign": true, 
+                "method": "license_manager"
+            }
+        }, 
+        {
+            "classtype": "SoftwareDescriptor", 
+            "version": "2.0.1", 
+            "name": "lm_sa", 
+            "packages": [
+                {
+                    "name": "runtime", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "lmsa-2.0.1-runtime-sle-cxp9021377.tar.gz", 
+                    "file_locations": [
+                        "file://input/lmsa-2.0.1-runtime-sle-cxp9021377.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-release-local/com/ericsson/cba/lmsa/lmsa/2.0.1/lmsa-2.0.1-runtime-sle-cxp9021377.tar.gz", 
+                        "file:///var/venus/sw/development/software/lmsa-2.0.1-runtime-sle-cxp9021377.tar.gz"
+                    ], 
+                    "version": "2.0.1", 
+                    "checksum_md5": "2992eccf77904c1e4adb93a2c6249af2", 
+                    "provides": "lm_sa", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }, 
+                {
+                    "name": "template", 
+                    "doc_number": "", 
+                    "pid": "", 
+                    "filename": "lmsa-2.0.1-deployment-sle-cxp9021378.tar.gz", 
+                    "file_locations": [
+                        "file://input/lmsa-2.0.1-deployment-sle-cxp9021378.tar.gz", 
+                        "arm://arm.rnd.ki.sw.ericsson.se/artifactory/proj-cba-release-local/com/ericsson/cba/lmsa/lmsa/2.0.1/lmsa-2.0.1-deployment-sle-cxp9021378.tar.gz", 
+                        "file:///var/venus/sw/development/software/lmsa-2.0.1-deployment-sle-cxp9021378.tar.gz"
+                    ], 
+                    "version": "2.0.1", 
+                    "checksum_md5": "82585749ca55ad33daebab789d8a6f6f", 
+                    "provides": "lm_sa", 
+                    "classtype": "SoftwarePackage", 
+                    "licenses": [], 
+                    "additional_info": {
+                        "upgrade": true
+                    }, 
+                    "id": "", 
+                    "description": ""
+                }
+            ], 
+            "additional_info": {
+                "clear_campaign": true, 
+                "method": "license_manager_sa"
+            }
+        }
+    ], 
+    "additional_info": {
+        "schema_priority": "core.schema,cudb.schema,internal_cudb.schema,identities.schema,mscIdentities.schema,csps.schema,auth.schema,sapc.schema,assoc.schema,aaa.schema,enum.schema", 
+        "workarounds": "GWA_0010_step2CC5179,GWA_0004_removeFeAddIfZero,GWA_0011_step1CC5179,GWA_0005_coreMwRebootCC5510,GWA_0001_evipEncapsulator,GWA_0002_copyClusterConfToJumpstart", 
+        "cmx_acls_templates": false, 
+        "redundancy_level": "4"
+    }, 
+    "name": "development"
+}

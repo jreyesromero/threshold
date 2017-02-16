@@ -1,0 +1,35 @@
+{
+    "description":"",
+    "phases": [
+        {
+            "name": "SV",
+            "procedures": [
+                 {
+                     "proc_id":"PROC_SYSTEM_UPGRADE_PREPARATION",
+                     "run_time":"00:02:12"
+                 },
+                 {
+                     "proc_id":"PROC_SET_SYSTEM_LIST",
+                     "run_time":"00:01:00"
+                 }, 
+                 {
+                     "proc_id":"PROC_IBU_SAVE_CONFIGURATION",
+                     "run_time":"00:02:03"
+                 } 
+             ]
+        },
+        {
+            "name": "SI",
+            "procedures": [
+                {
+                    "proc_id":"PROC_17A_CHECK_LKF",
+                    "run_time":"00:00:17"
+                },
+                {
+                    "proc_id":"PROC_17A_MULTI_VALUE_OBJECTS",
+                    "run_time":"00:00:20"
+                }
+            ]
+        }
+    ]
+}
