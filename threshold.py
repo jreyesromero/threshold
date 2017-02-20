@@ -13,7 +13,7 @@ def parse_arguments():
     options, args = parser.parse_known_args()
     return options, args
 
-def read_threshold_json_file(json_file, phase_id):
+def read_threshold_json_file(json_file, phase_id, proc_name):
   try:
     jfile = open(json_file, 'r')
   except IOError:
@@ -22,41 +22,37 @@ def read_threshold_json_file(json_file, phase_id):
 
   threshold_params = json.load(jfile)
   jfile.close()
-#  phase_id = 'SI'
 
-  phases = []
   for phase in threshold_params.get("phases", []):
     si_procedures = []
-#    if (phase["name"] == 'SI'):
     if (phase["name"] == phase_id):
       for proc in phase['procedures']:
-        si_proc_id, si_proc_time = proc['proc_id'], proc['run_time']
-        print("Procedure name: {} ".format(si_proc_id))
-        print("Run time: {}".format(si_proc_time))
-
-    phases.append(phase)
-
-  return phases
+        if (proc['proc_id'] == proc_name):
+          return  proc['run_time']
 
 def treat_log_file(log_file, threshold_file):
-    try:
-        lfile = open(log_file, 'r')
-    except IOError:
-        print >> sys.stderr, "Error, cannot open " + log_file + " for reading."
-        sys.exit(1)
+  try:
+    lfile = open(log_file, 'r')
+  except IOError:
+    print >> sys.stderr, "Error, cannot open " + log_file + " for reading."
+    sys.exit(1)
 
-#    for line in lfile.readlines():
-#        read_line = line.split()
-#        phase, procedure, time = read_line[0], read_line[1], read_line[2]
+  for line in lfile.readlines():
+    read_line = line.split()
+    phase, procedure, time = read_line[0], read_line[1], read_line[2]
 #        print("Phase name: {} ".format(phase))
 #        print("Procedure name: {}".format(procedure))
 #        print("Time: {}".format(time))
-
-        
+    run_time = read_threshold_json_file(threshold_file, phase, procedure)
+    if run_time is None:
+      print("Run time for process not found for phase {} proc {}".format(phase,procedure))
+    else:
+      print("RUNTIME found: {} for phase {} procedure {}".format(run_time, phase, procedure))
 
 if __name__ == '__main__':
     options, args = parse_arguments()
-    phases = read_threshold_json_file(options.threshold, 'SV')
+#    run_time = read_threshold_json_file(options.threshold, 'SV', 'PROC_SYSTEM_UPGRADE_PREPARATION')
+
 #    for descriptor in phases:
 #        phase_name = descriptor.get("name")
 #        procedures = descriptor.get("procedures",[])
