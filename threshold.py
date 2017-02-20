@@ -13,20 +13,30 @@ def parse_arguments():
     options, args = parser.parse_known_args()
     return options, args
 
-def read_threshold_json_file(json_file):
-    try:
-        jfile = open(json_file, 'r')
-    except IOError:
-        print >> sys.stderr, "Error, cannot open " + json_file + " for reading."
-        sys.exit(1)
+def read_threshold_json_file(json_file, phase_id):
+  try:
+    jfile = open(json_file, 'r')
+  except IOError:
+    print >> sys.stderr, "Error, cannot open " + json_file + " for reading."
+    sys.exit(1)
 
+  threshold_params = json.load(jfile)
+  jfile.close()
+#  phase_id = 'SI'
 
-    threshold_params = json.load(jfile)
-    jfile.close()
+  phases = []
+  for phase in threshold_params.get("phases", []):
+    si_procedures = []
+#    if (phase["name"] == 'SI'):
+    if (phase["name"] == phase_id):
+      for proc in phase['procedures']:
+        si_proc_id, si_proc_time = proc['proc_id'], proc['run_time']
+        print("Procedure name: {} ".format(si_proc_id))
+        print("Run time: {}".format(si_proc_time))
 
+    phases.append(phase)
 
-    phases = threshold_params.get("phases", [])
-    return phases
+  return phases
 
 def treat_log_file(log_file, threshold_file):
     try:
@@ -35,18 +45,18 @@ def treat_log_file(log_file, threshold_file):
         print >> sys.stderr, "Error, cannot open " + log_file + " for reading."
         sys.exit(1)
 
-    for line in lfile.readlines():
-        read_line = line.split()
-        phase, procedure, time = read_line[0], read_line[1], read_line[2]
-        print("Phase name: {} ".format(phase))
-        print("Procedure name: {}".format(procedure))
-        print("Time: {}".format(time))
+#    for line in lfile.readlines():
+#        read_line = line.split()
+#        phase, procedure, time = read_line[0], read_line[1], read_line[2]
+#        print("Phase name: {} ".format(phase))
+#        print("Procedure name: {}".format(procedure))
+#        print("Time: {}".format(time))
 
         
 
 if __name__ == '__main__':
     options, args = parse_arguments()
-    phases = read_threshold_json_file(options.threshold)
+    phases = read_threshold_json_file(options.threshold, 'SV')
 #    for descriptor in phases:
 #        phase_name = descriptor.get("name")
 #        procedures = descriptor.get("procedures",[])
