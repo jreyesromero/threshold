@@ -1,6 +1,7 @@
 import sys
 import json
 import argparse
+from datetime import datetime, timedelta, date
 
 def parse_arguments():
     """
@@ -43,11 +44,37 @@ def treat_log_file(log_file, threshold_file):
 #        print("Phase name: {} ".format(phase))
 #        print("Procedure name: {}".format(procedure))
 #        print("Time: {}".format(time))
-    run_time = read_threshold_json_file(threshold_file, phase, procedure)
-    if run_time is None:
+    threshold_time = read_threshold_json_file(threshold_file, phase, procedure)
+    if threshold_time is None:
       print("Run time for process not found for phase {} proc {}".format(phase,procedure))
     else:
-      print("RUNTIME found: {} for phase {} procedure {}".format(run_time, phase, procedure))
+      print("RUNTIME {} threshold {}".format(time,threshold_time))
+#      check_run_time(time, threshold_time)
+      if diff_times_in_seconds(time, threshold_time):
+        print("Difference inside 10 percent allowed")
+      else:
+        print("percentage difference excedes 10 percent allowed")
+
+def diff_times_in_seconds(process_run_time, process_threshold_time):
+  time1 = datetime.strptime(process_run_time,"%H:%M:%S")
+  time2 = datetime.strptime(process_threshold_time,"%H:%M:%S")
+  h1, m1, s1 = time1.hour, time1.minute, time1.second
+  h2, m2, s2 = time2.hour, time2.minute, time2.second
+  t1_secs = s1 + 60 * (m1 + 60*h1)
+  t2_secs = s2 + 60 * (m2 + 60*h2)
+  print("run_time_seconds {} threshold_seconds {}".format(t1_secs, t2_secs))
+  result_secs = ( t1_secs - t2_secs)
+
+  # if result_secs > 0 : process_run_time higher than threshold
+  # if result_secs < 0 : process_run_time less than threshold
+  # in both case, lets check if the difference is higher than 10%
+  if result_secs != 0: 
+    diff_percentage = abs(((t2_secs - t1_secs)/t2_secs)*100.0)
+    print("percentage {}".format(diff_percentage))
+    if diff_percentage > 10:
+       return False
+
+  return True
 
 if __name__ == '__main__':
     options, args = parse_arguments()
