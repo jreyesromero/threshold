@@ -28,18 +28,15 @@ def read_threshold_json_file(json_file, phase_id, proc_name):
     @return threshold_time read for a given procedure
     """
     try:
-        jfile = open(json_file, 'r')
-    except IOError:
+        with open(json_file, 'r') as jfile:
+            threshold_params = json.load(jfile)
+            for phase in threshold_params.get("phases", []):
+                if phase["name"] == phase_id:
+                    for proc in phase['procedures']:
+                        if proc['proc_id'] == proc_name:
+                            return proc['run_time']
+    except EnvironmentError:
         raise
-
-    threshold_params = json.load(jfile)
-    jfile.close()
-
-    for phase in threshold_params.get("phases", []):
-        if phase["name"] == phase_id:
-            for proc in phase['procedures']:
-                if proc['proc_id'] == proc_name:
-                    return  proc['run_time']
 
 def treat_log_file(log_file, threshold_file):
     """
@@ -55,28 +52,27 @@ def treat_log_file(log_file, threshold_file):
             range comparing
     """
     try:
-        lfile = open(log_file, 'r')
-    except IOError:
+        print("%5s %50s %10s %10s %10s   %s" % ("PHASE", "PROCEDURE", "RUNTIME", \
+                                                "THRESHOLD", "DIFF", "VERDICT"))
+        with open(log_file, 'r') as lfile:
+            for line in lfile.readlines():
+                read_line = line.split()
+                phase, procedure, time = read_line[0], read_line[1], read_line[2]
+                threshold_time = read_threshold_json_file(threshold_file, phase, procedure)
+
+                if threshold_time is None:
+                    diff_str = "N/A"
+                    verdict = "Not found"
+                else:
+                    diff = diff_percentage(time, threshold_time)
+                    verdict = "OK" if abs(diff) <= PERCENT_RANGE else "WARNING"
+                    diff_str = "%+.2f%%" % diff
+
+                print("%5s %50s %10s %10s %10s   %s" % (phase, procedure, time, \
+                                                        threshold_time, diff_str, verdict))
+
+    except EnvironmentError:
         raise
-
-    print("%5s %50s %10s %10s %10s   %s" % ("PHASE", "PROCEDURE", "RUNTIME", \
-                                            "THRESHOLD", "DIFF", "VERDICT"))
-    for line in lfile.readlines():
-
-        read_line = line.split()
-        phase, procedure, time = read_line[0], read_line[1], read_line[2]
-        threshold_time = read_threshold_json_file(threshold_file, phase, procedure)
-
-        if threshold_time is None:
-            diff_str = "N/A"
-            verdict = "Not found"
-        else:
-            diff = diff_percentage(time, threshold_time)
-            verdict = "OK" if abs(diff) <= PERCENT_RANGE else "WARNING"
-            diff_str = "%+.2f%%" % diff
-
-        print("%5s %50s %10s %10s %10s   %s" % (phase, procedure, time, \
-                                                threshold_time, diff_str, verdict))
 
 def diff_percentage(process_run_time, process_threshold_time):
     """
@@ -135,6 +131,6 @@ if __name__ == '__main__':
     PERCENT_RANGE = 10
     try:
         sys.exit(main())
-    except IOError as io_exception:
+    except EnvironmentError as io_exception:
         print >> sys.stderr, str(io_exception)
         sys.exit(2)
