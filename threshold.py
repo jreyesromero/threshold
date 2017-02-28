@@ -17,28 +17,39 @@ def parse_arguments():
 
     return parser.parse_known_args()
 
-def read_threshold_json_file(json_file, phase_id, proc_name):
+def read_threshold_json_file(json_file):
     """
-    Function to read the threshold json file
+    Function to read threshold json file
 
     @param json_file path of file in json format containing threshold values for every procedure
     @param phase_id  name of the phase
     @param proc_name name of the procedure. We have to take the threshold time for that procedure
 
-    @return threshold_time read for a given procedure
+    @return content of json file
     """
     try:
         with open(json_file, 'r') as jfile:
-            threshold_params = json.load(jfile)
-            for phase in threshold_params.get("phases", []):
-                if phase["name"] == phase_id:
-                    for proc in phase['procedures']:
-                        if proc['proc_id'] == proc_name:
-                            return proc['run_time']
+            return json.load(jfile)
     except EnvironmentError:
         raise
 
-def treat_log_file(log_file, threshold_file):
+def get_threshold_for_procedure(threshold_params, phase_id, proc_name):
+    """
+    Function to read threshold json file
+
+    @param threshold_params cache which contains the content of threshold json file
+    @param phase_id  name of the phase
+    @param proc_name name of the procedure. We have to take the threshold time for that procedure
+
+    @return threshold time for a given procedure
+    """
+    for phase in threshold_params.get("phases", []):
+        if phase["name"] == phase_id:
+            for proc in phase['procedures']:
+                if proc['proc_id'] == proc_name:
+                    return proc['run_time']
+
+def treat_log_file(log_file, threshold_params):
     """
     Function to get the if, for every line of log_file containing runtime for every procedure,
     it exceeds a 10% time threshold, comparing with times in threshold_file in json format.
@@ -58,7 +69,7 @@ def treat_log_file(log_file, threshold_file):
             for line in lfile.readlines():
                 read_line = line.split()
                 phase, procedure, time = read_line[0], read_line[1], read_line[2]
-                threshold_time = read_threshold_json_file(threshold_file, phase, procedure)
+                threshold_time = get_threshold_for_procedure(threshold_params, phase, procedure)
 
                 if threshold_time is None:
                     diff_str = "N/A"
@@ -121,16 +132,16 @@ def get_time_in_seconds(time):
 
 def main():
     """
-
-    :return:
+    Main function
     """
     options, args = parse_arguments()
-    treat_log_file(options.log_file, options.threshold)
+    threshold_params = read_threshold_json_file(options.threshold)
+    treat_log_file(options.log_file, threshold_params)
 
 if __name__ == '__main__':
     PERCENT_RANGE = 10
     try:
         sys.exit(main())
-    except EnvironmentError as io_exception:
-        print >> sys.stderr, str(io_exception)
+    except EnvironmentError as env_error:
+        print >> sys.stderr, str(env_error)
         sys.exit(2)
