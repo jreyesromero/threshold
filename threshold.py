@@ -1,4 +1,41 @@
 #!/usr/bin/env python
+
+"""
+This scripts obtains the time difference, in percentage, between the execution of a upgrade
+procedures and a preconfigured threshold time information.
+In order to obtain that difference, the script needs to receive as input the path of two files:
+ - Path of the file with the runtime values for all the procedures involved in the upgrade.
+       This file will be generated during the execution of the upgrade.
+       The format of every line included in the file must be similar to:
+           <PHASE_ID> <PROCEDURE_ID> <RUN_TIME HH:MM:SS>
+
+ - Path of the file which contains the threshold time values for every procedure involved in
+   the upgrade.
+       This file has a json format and should be configured before executing this script.
+       Threshold time will have the format HH:MM:SS
+
+To calculate the difference, the script would execute the next steps:
+    1.- Will store in a cache the content of the json file with threshold values.
+    2.- For every line in upgrade procedures runtime file, will check if the json file stores
+        information about that phase and procedure.
+        2.-1 If the phase and procedure is found in threshold file: will obtain the difference
+             between the 2 times in seconds, and calculate the difference in percentage.
+        2.2. If the phase and procedure aren't found, VERDICT will be Not found
+    3.- Once that the percentage difference for a given phase/procedure has been calculated,
+        the script will check if the absolute value of the percentage is:
+            3.1. Between 0% and 10%: VERDICT will be OK
+            3.2. Higher than 10%: VERDICT will be WARNING. A manual checks needs to be done to
+                 get the reason for the difference in runtime for that process.
+
+The output that the user will obtain after executing the script would be similar to:
+
+PHASE                                       PROCEDURE    RUNTIME  THRESHOLD       DIFF   VERDICT
+SV                    PROC_SYSTEM_UPGRADE_PREPARATION   00:02:12   00:02:12     +0.00%   OK
+-S                 PROC_IBU_INSTALL_EVIP_ENCAPSULATOR   00:00:00       None        N/A   Not found
+NI            PROC_IBU_EXECUTE_CUDB_AUTOMATED_INSTALL   00:39:17   00:49:47    -21.09%   WARNING
+
+"""
+
 import sys
 import json
 import argparse
@@ -22,8 +59,6 @@ def read_threshold_json_file(json_file):
     Function to read threshold json file
 
     @param json_file path of file in json format containing threshold values for every procedure
-    @param phase_id  name of the phase
-    @param proc_name name of the procedure. We have to take the threshold time for that procedure
 
     @return content of json file
     """
@@ -134,7 +169,7 @@ def main():
     """
     Main function
     """
-    options, args = parse_arguments()
+    options, _ = parse_arguments()
     threshold_params = read_threshold_json_file(options.threshold)
     treat_log_file(options.log_file, threshold_params)
 
@@ -143,5 +178,5 @@ if __name__ == '__main__':
     try:
         sys.exit(main())
     except EnvironmentError as env_error:
-        print >> sys.stderr, str(env_error)
+        print("EnvironmentErro: {}".format(str(env_error)))
         sys.exit(2)
