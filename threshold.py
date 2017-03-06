@@ -78,20 +78,11 @@ def get_threshold_for_procedure(threshold_params, phase_id, proc_name):
 
     @return threshold time for a given procedure
     """
-
-    phases = [phase for phase in threshold_params.get("phases", []) if phase["name"] == phase_id ]
-
-    print("*****")
-    print("my_phases: {}".format(phases))
-    print("my_process: {}".format(phases.__getattribute__("procedures")))
-
     for phase in threshold_params.get("phases", []):
         if phase["name"] == phase_id:
             for proc in phase['procedures']:
                 if proc['proc_id'] == proc_name:
                     return proc['run_time']
-
-
 
 def treat_log_file(log_file, threshold_params):
     """
