@@ -41,6 +41,7 @@ import json
 import argparse
 from datetime import datetime
 
+
 def parse_arguments():
     """
     Parser for command line arguments
@@ -49,8 +50,11 @@ def parse_arguments():
     parser.add_argument("-f", "--log_file", default="upgradeProceduresTiming.log", \
                         help="log file with upgrade execution times."
                              "ie: upgradeProceduresTiming.log.")
-    parser.add_argument("-t", "--threshold", default="threshold.json", \
+    parser.add_argument("-t", "--threshold", default="p.json", \
                         help="json file with threshold information. ie: threshold.json.")
+
+    parser.add_argument("-p", "--platform", type=str, choices=set(('FTNODE', 'BSP8100_GEP3')),
+                        help="platform type", required=True)
 
     return parser.parse_known_args()
 
@@ -68,7 +72,10 @@ def read_threshold_json_file(json_file):
     except EnvironmentError:
         raise
 
-def get_threshold_for_procedure(threshold_params, phase_id, proc_name):
+
+
+
+def get_threshold_for_procedure(platform_list, phase_id, proc_name):
     """
     Function to read threshold json file
 
@@ -78,13 +85,14 @@ def get_threshold_for_procedure(threshold_params, phase_id, proc_name):
 
     @return threshold time for a given procedure
     """
-    for phase in threshold_params.get("phases", []):
-        if phase["name"] == phase_id:
-            for proc in phase['procedures']:
-                if proc['proc_id'] == proc_name:
-                    return proc['run_time']
+    phases_list = platform_list[0]['phases']
+    phase_element_list = [element for element in phases_list if element['name'] == phase_id]
+    if phase_element_list:
+        procedures_dict = phase_element_list[0]['procedures']
+        if procedures_dict and proc_name in procedures_dict:
+            return procedures_dict[proc_name]
 
-def treat_log_file(log_file, threshold_params):
+def treat_log_file(log_file, platform, threshold_params):
     """
     Function to get the if, for every line of log_file containing runtime for every procedure,
     it exceeds a 10% time threshold, comparing with times in threshold_file in json format.
@@ -98,14 +106,20 @@ def treat_log_file(log_file, threshold_params):
             range comparing
     """
     try:
-        print("%5s %50s %10s %10s %10s   %s" % ("PHASE", "PROCEDURE", "RUNTIME", \
-                                                "THRESHOLD", "DIFF", "VERDICT"))
+        print ("%5s %50s %10s %10s %10s %10s" % ("PHASE", "PROCEDURE", "RUNTIME", \
+                                                 "THRESHOLD", "DIFF", "VERDICT"))
+
+        platform_list = [
+            platform_type
+            for platform_type in threshold_params.get("platforms", [])
+            if platform_type['platform_id'] == platform
+        ]
+
         with open(log_file, 'r') as lfile:
             for line in lfile.readlines():
                 read_line = line.split()
                 phase, procedure, time = read_line[0], read_line[1], read_line[2]
-                threshold_time = get_threshold_for_procedure(threshold_params, phase, procedure)
-
+                threshold_time = get_threshold_for_procedure(platform_list, phase, procedure)
                 if threshold_time is None:
                     diff_str = "N/A"
                     verdict = "Not found"
@@ -114,7 +128,7 @@ def treat_log_file(log_file, threshold_params):
                     verdict = "OK" if abs(diff) <= PERCENT_RANGE else "WARNING"
                     diff_str = "%+.2f%%" % diff
 
-                print("%5s %50s %10s %10s %10s   %s" % (phase, procedure, time, \
+                print ("%5s %50s %10s %10s %10s   %s" % (phase, procedure, time, \
                                                         threshold_time, diff_str, verdict))
 
     except EnvironmentError:
@@ -171,12 +185,13 @@ def main():
     """
     options, _ = parse_arguments()
     threshold_params = read_threshold_json_file(options.threshold)
-    treat_log_file(options.log_file, threshold_params)
+    treat_log_file(options.log_file, options.platform, threshold_params)
+
 
 if __name__ == '__main__':
     PERCENT_RANGE = 10
     try:
         sys.exit(main())
     except EnvironmentError as env_error:
-        print("EnvironmentErro: {}".format(str(env_error)))
+        print ("EnvironmentErro: {}".format(str(env_error)))
         sys.exit(2)
