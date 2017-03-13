@@ -29,30 +29,28 @@ def get_commited_sources(origingTag, destTag):
     path_list = [path.decode('UTF-8') for path in cmd_output]
     return path_list
 
+def read_reference_file(path):
+    with open(path, 'r') as ctfile:
+        ct_ref_file = [ref_line.rstrip('\n') for ref_line in ctfile.readlines()]
+        return ct_ref_file
+
 def get_component_list(path_changes_list, ct_file):
-
     ct_list = []
-    with open(ct_file, 'r') as ctfile:
-        for ct in path_changes_list:
-            dir_name = str(os.path.dirname(ct))
-            print("dir_name {}".format(str(dir_name)))
-            for line in ctfile.readlines():
-                print("lines {}".format(line))
-                #if str(dir_name) in line:
-                if line.find(str(dir_name)) != -1:
-                    print("Encontrada dirname {} en line {}".format(dir_name,lines))
-                    component = line.split(' ',1)[0]
-                    if component not in ct_list:
-                        ct_list.append(component)
-
-    print("ct_list: {}".format(ct_list))
+    reference_file = read_reference_file(ct_file)
+    dir_name_list = [os.path.dirname(component_path) for component_path in path_changes_list]
+    for dir_name in dir_name_list:
+        ct_matching_list = [ct_line for ct_line in reference_file if dir_name in ct_line]
+        for ct_match in ct_matching_list:
+            component = ct_match.split(' ',1)[0]
+            if component not in ct_list:
+                ct_list.append(component)
+    return ct_list
 
 def main():
     options, _ = parse_arguments()
-    #src_changes_list = get_commited_sources("CQA_0339_20170307182742_ONE_TRACK_GREEN","HEAD")
     src_changes_list = get_commited_sources(options.tag1, options.tag2)
-    print("src_changes_list: {}".format(src_changes_list))
-    get_component_list(src_changes_list, options.file)
+    list_of_components = get_component_list(src_changes_list, options.file)
+    print("list_of_components {}".format(list_of_components))
 
 if __name__ == '__main__':
     try:
