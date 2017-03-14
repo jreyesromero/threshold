@@ -11,11 +11,12 @@ detected as modified by this script.
 """
 import sys
 import argparse
-from os import getenv, path
+from os import getenv, path, chdir, getcwd
 import subprocess
 
 WORKSPACE = getenv('WORKSPACE', '.')
 CT_PROPERTIES_FILE = path.join(WORKSPACE)
+CUDB_REPO_PATH = "../cudb/"
 
 def parse_arguments():
     """
@@ -42,9 +43,12 @@ def get_commited_sources(origin_tag, dest_tag):
 
     @return list of path files which correspond to the differences between the two tags.
     """
+    CWD = getcwd()
+    chdir(CUDB_REPO_PATH)
     cmd = 'git diff %s..%s --name-only' % (origin_tag, dest_tag)
     cmd_output = subprocess.check_output(cmd, shell=True).split()
     path_list = [path.decode('UTF-8') for path in cmd_output]
+    chdir(CWD)
     return path_list
 
 def read_reference_file(ref_file_path):
@@ -90,12 +94,14 @@ def compare_ref_with_dirname(reference_file, dir_name_list):
 
     @param reference_file path of the file with the relation between paths and CT components.
     @param dir_name_list list of the paths of the files which have been modified.
+                         This list includes only 'sources' or 'ToolsFW' paths
 
     @return list of CT components modified. Non duplicated componentes guaranteed..
     """
     ct_list = []
     for dir_name in dir_name_list:
-        ct_matching_list = [ct_line for ct_line in reference_file if dir_name in ct_line]
+        ct_matching_list = [ct_line for ct_line in reference_file \
+                            if ct_line.split(' ', 1)[1] in dir_name]
         ct_list = get_non_duplicated_components(ct_matching_list, ct_list)
     return ct_list
 
@@ -110,7 +116,10 @@ def get_component_list(path_modifications_list, ct_file):
     """
     reference_file = read_reference_file(ct_file)
     dir_name_list = [path.dirname(component_path) for component_path in path_modifications_list]
-    return compare_ref_with_dirname(reference_file, dir_name_list)
+    # second parameter just include 'sources' and 'ToolsFW' paths
+    return compare_ref_with_dirname(reference_file, \
+                                    [dir_line for dir_line in dir_name_list \
+                                     if "sources" in dir_line or "ToolsFW" in dir_line])
 
 def write_ct_properties_file(ct_true, ct_false):
     """
