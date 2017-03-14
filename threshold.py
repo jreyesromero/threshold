@@ -193,5 +193,5 @@ if __name__ == '__main__':
     try:
         sys.exit(main())
     except EnvironmentError as env_error:
-        print ("EnvironmentErro: {}".format(str(env_error)))
+        print("EnvironmentErro: {}".format(str(env_error)))
         sys.exit(2)

@@ -150,7 +150,7 @@ def main():
     Main function
     """
     ct_list = ["CS", "LDAPFE", "IMM", "RECONC", "SRCC", "CAPACITYHANDLER", \
-               "OBS", "TRAFFCTRL", "NOTIFICATIONS", "SM"]
+               "TRAFFCTRL", "NOTIFICATIONS", "SM"]
     options, _ = parse_arguments()
     modifications_list = get_commited_sources(options.tag1, options.tag2)
     list_of_components = get_component_list(modifications_list, options.file)
